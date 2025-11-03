@@ -1,0 +1,12 @@
+[project]
+name = "cim-data-manager-sincal-powerfactory"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chevron",
+    "lxml",
+    "PyQt5",
+    "xmltodict",
+]

@@ -59,7 +59,7 @@ class MainWindow(QDialog):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        loadUi(".\Gui.ui", self)
+        loadUi("Gui.ui", self)
         self.noWheelCombos = []
         self.checkBoxList = self.findChildren(QtWidgets.QCheckBox)
         self.searchBtn.clicked.connect(self.browse_files)
