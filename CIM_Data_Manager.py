@@ -137,6 +137,7 @@ class MainWindow(QDialog):
         xml_files = []
         for file in example.glob('*.xml'):
             xml_files.append(str(file.absolute()))
+        print(len(xml_files))
         if len(xml_files) == 0:
             messages("No CIM files found!", "Warning")
             return
@@ -147,8 +148,9 @@ class MainWindow(QDialog):
         cgmesver = "cgmes_v2_4_15"
         try:
             import_result = cimpy.cim_import(xml_files, cgmesver)
-        except:
-            messages('No CIM files found!', "Warning")
+        except Exception as e:
+            messages(f'Cimpy failed to import: {e}', "Warning")
+            print(f'ERROR during import: {e}')
             return
         self.data_manager.data = import_result
         self.data_manager.profile_elements = {}

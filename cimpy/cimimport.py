@@ -198,10 +198,10 @@ def _instantiate_classes(import_result, xml_files, cgmes_version_path, namespace
                 elif 'Model.modelingAuthoritySet' in elem.tag:
                     import_result['meta_info']['author'] = elem.text
                 #Added by Mohamed 
-                if 'FullModel' in elem.tag:
+                if 'FullModel' in elem.tag and package in short_package_name:
                     import_result['meta_info']['profile_about'][short_package_name[package]] = elem.attrib.values()[0]
                 # Model.DepentOn should be after the FullModel in the .xml files
-                if 'Model.DependentOn' in elem.tag:                 
+                if 'Model.DependentOn' in elem.tag and package in short_package_name:                 
                     if "DependentOn" not in import_result['meta_info']['profile_about'].keys():
                         import_result['meta_info']['profile_about']["DependentOn"]={}
                     if short_package_name[package] not in import_result['meta_info']['profile_about']['DependentOn']:
